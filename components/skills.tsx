@@ -74,7 +74,7 @@ const categories = [
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("all")
-  const [hoveredSkill, setHoveredSkill] = useState(null)
+  // Removed unused hoveredSkill state
 
   const filteredSkills =
     activeCategory === "all"
@@ -98,7 +98,7 @@ export default function Skills() {
           <h2 className="text-3xl md:text-4xl font-bold mb-2">My Skills</h2>
           <div className="h-1 w-20 bg-purple-600 mx-auto"></div>
           <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-            I've developed expertise in various technologies and tools throughout my journey as a web developer. Each
+            I&apos;ve developed expertise in various technologies and tools throughout my journey as a web developer. Each
             skill is applied in real-world projects to create exceptional digital experiences.
           </p>
         </motion.div>
@@ -129,8 +129,7 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               className="group"
-              onMouseEnter={() => setHoveredSkill(skill.name)}
-              onMouseLeave={() => setHoveredSkill(null)}
+              // Removed unused hoveredSkill handlers
             >
               <div className="flex justify-between mb-1">
                 <span className="font-medium text-gray-200 flex items-center gap-2">
