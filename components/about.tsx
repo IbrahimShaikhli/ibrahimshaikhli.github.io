@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
-import { FileText, Github, Linkedin } from "lucide-react"
+import {Github, Linkedin } from "lucide-react"
 import Link from "next/link"
 import { useRef } from "react"
 
