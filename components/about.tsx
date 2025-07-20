@@ -119,13 +119,6 @@ export default function About() {
                   <Github className="h-4 w-4" />
                   View My Work
                 </Link>
-                {/* <a
-                  href="#"
-                  className="border border-purple-600 text-purple-500 hover:bg-purple-600/10 hover:text-purple-400 font-bold py-2 px-6 rounded-full transition-all duration-300 flex items-center gap-2"
-                >
-                  <FileText className="h-4 w-4" />
-                  Download CV
-                </a> */}
                 <a
                   href="https://www.linkedin.com/in/ibrahim-khalid-8b5692176/" target="_blank"
                   className="border border-purple-600 text-purple-500 hover:bg-purple-600/10 hover:text-purple-400 font-bold py-2 px-6 rounded-full transition-all duration-300 flex items-center gap-2"
