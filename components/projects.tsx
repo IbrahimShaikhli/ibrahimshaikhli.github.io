@@ -18,7 +18,7 @@ const projects = [
     id: 2,
     title: "HalalElites",
     description: "A web development services based in Toledo Ohio",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/HELogo.jpg",
     tags: ["React", "Next.js", "Tailwind CSS", "Zoho"],
     liveLink: "https://halalelites.dev/",
     githubLink: "#",
