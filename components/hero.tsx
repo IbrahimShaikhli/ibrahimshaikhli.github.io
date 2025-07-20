@@ -5,7 +5,6 @@ import { ArrowDown, Terminal, Play } from "lucide-react"
 import Link from "next/link"
 import { useRef, useState, useEffect } from "react" 
 import CodeBackground from "@/components/codeBG"
-import { useAnimation } from "@/components/animationContext"
 
 // Define TypeScript interfaces
 interface TerminalLine {
@@ -23,8 +22,6 @@ interface TypedLineProps {
 export default function Hero() {
   const backgroundRef = useRef<HTMLDivElement>(null)
   const [animationStage, setAnimationStage] = useState<"init" | "typing" | "complete">("init")
-  const [typingComplete, setTypingComplete] = useState<boolean>(false)
-  const { setAnimationComplete } = useAnimation()
   
   // Terminal typing text
   const terminalLines: TerminalLine[] = [
@@ -36,20 +33,7 @@ export default function Hero() {
   ]
   
   // Start complete stage after typing is complete
-  useEffect(() => {
-    if (typingComplete) {
-      // Direct transition to complete stage
-      setTimeout(() => {
-        setAnimationStage("complete")
-        
-        // Signal animation completion for navbar to appear
-        setTimeout(() => {
-          setAnimationComplete(true)
-        }, 500)
-      }, 500)
-    }
-  }, [typingComplete, setAnimationComplete])
-  
+
   // Auto-start animation
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -142,16 +126,14 @@ export default function Hero() {
   )
   
   // Check if we should show the CodeBackground
-  const { animationComplete } = useAnimation()
   
   return (
     <section id="Home" className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
       {/* Background code animation container - only shown after animation completes */}
-      {animationComplete && (
         <div ref={backgroundRef} className="absolute inset-0 overflow-hidden opacity-50">
           <CodeBackground />
         </div>
-      )}
+    
 
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black z-0"></div>
@@ -205,17 +187,7 @@ export default function Hero() {
                 </div>
                 
                 {/* Terminal content */}
-                <div className="p-4 font-mono text-sm text-green-500 h-64 overflow-y-auto">
-                  {terminalLines.map((line, index) => (
-                    <TypedLine 
-                      key={index} 
-                      text={line.text} 
-                      delay={line.delay} 
-                      index={index}
-                      onComplete={() => setTypingComplete(true)}
-                    />
-                  ))}
-                </div>
+              
               </div>
             </motion.div>
           )}
@@ -227,7 +199,7 @@ export default function Hero() {
 
       {/* Scroll indicator - only shows when animation is complete */}
       <AnimatePresence>
-        {animationComplete && (
+       
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -243,7 +215,6 @@ export default function Hero() {
               </Link>
             </motion.div>
           </motion.div>
-        )}
       </AnimatePresence>
     </section>
   )
