@@ -3,91 +3,15 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowDown, Terminal, Play } from "lucide-react"
 import Link from "next/link"
-import { useRef, useState, useEffect } from "react" 
+import { useRef, useState } from "react" 
 import CodeBackground from "@/components/codeBG"
 
-// Define TypeScript interfaces
-interface TerminalLine {
-  text: string;
-  delay: number;
-}
-
-interface TypedLineProps {
-  text: string;
-  delay: number;
-  index: number;
-  onComplete: () => void;
-}
 
 export default function Hero() {
   const backgroundRef = useRef<HTMLDivElement>(null)
   const [animationStage, setAnimationStage] = useState<"init" | "typing" | "complete">("init")
   
-  // Terminal typing text
-  const terminalLines: TerminalLine[] = [
-    { text: "> npm run build", delay: 0.5 },
-    { text: "Creating optimized production build...", delay: 1.2 },
-    { text: "Compiling src/components/Hero.tsx...", delay: 1.8 },
-    { text: "Generating UI components...", delay: 2.4 },
-    { text: "Build complete! Starting application...", delay: 3.0 },
-  ]
-  
-  // Start complete stage after typing is complete
 
-  // Auto-start animation
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationStage("typing")
-    }, 800)
-    
-    return () => clearTimeout(timer)
-  }, [])
-
-  // Typing effect for terminal lines
-  const TypedLine = ({ text, delay, index, onComplete }: TypedLineProps) => {
-    const [displayText, setDisplayText] = useState("")
-    const [cursorVisible, setCursorVisible] = useState(true)
-    
-    useEffect(() => {
-      let currentIndex = 0
-      
-      // Start typing after delay
-      const startTimeout = setTimeout(() => {
-        const interval = setInterval(() => {
-          if (currentIndex <= text.length) {
-            setDisplayText(text.substring(0, currentIndex))
-            currentIndex++
-          } else {
-            clearInterval(interval)
-            // Call completion callback for the last line
-            if (index === terminalLines.length - 1) {
-              setTimeout(() => onComplete(), 300)
-            }
-          }
-        }, 30) // typing speed
-        
-        return () => clearInterval(interval)
-      }, delay * 1000)
-      
-      // Blinking cursor
-      const cursorInterval = setInterval(() => {
-        setCursorVisible(prev => !prev)
-      }, 500)
-      
-      return () => {
-        clearTimeout(startTimeout)
-        clearInterval(cursorInterval)
-      }
-    }, [text, delay, index, onComplete])
-    
-    return (
-      <div className="flex items-start mb-2 font-mono text-sm">
-        {index === 0 && <span className="text-green-400 mr-2">➜</span>}
-        <span className="text-gray-300">{displayText}</span>
-        {cursorVisible && <span className="w-2 h-4 bg-gray-400 ml-1"></span>}
-      </div>
-    )
-  }
   
   // Hero content that appears after animation
   const renderedHeroContent = (
