@@ -3,12 +3,10 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowDown, Terminal, Play } from "lucide-react"
 import Link from "next/link"
-import { useRef, useState } from "react" 
-import CodeBackground from "@/components/codeBG"
+import { useState } from "react" 
 
 
 export default function Hero() {
-  const backgroundRef = useRef<HTMLDivElement>(null)
   const [animationStage, setAnimationStage] = useState<"init" | "typing" | "complete">("init")
   
 
@@ -53,11 +51,7 @@ export default function Hero() {
   
   return (
     <section id="Home" className="relative h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-      {/* Background code animation container - only shown after animation completes */}
-        <div ref={backgroundRef} className="absolute inset-0 overflow-hidden opacity-50">
-          <CodeBackground />
-        </div>
-    
+ 
 
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black z-0"></div>

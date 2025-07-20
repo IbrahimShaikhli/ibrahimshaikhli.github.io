@@ -6,7 +6,6 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
-import { useAnimation } from "@/components/animationContext"
 
 const navLinks = [
   { name: "Home", href: "#" },
@@ -20,7 +19,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
-  const { animationComplete } = useAnimation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,11 +81,7 @@ export default function Navbar() {
     }
   }
 
-  // If animation isn't complete, don't render the navbar
-  if (!animationComplete) {
-    return null;
-  }
-  
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
