@@ -16,11 +16,11 @@ const projects = [
   },
   {
     id: 2,
-    title: "Coming Soon",
-    description: "...",
+    title: "HalalElites",
+    description: "A web development services based in Toledo Ohio",
     image: "/placeholder.svg?height=400&width=600",
-    tags: [],
-    liveLink: "#",
+    tags: ["React", "Next.js", "Tailwind CSS", "Zoho"],
+    liveLink: "https://halalelites.dev/",
     githubLink: "#",
   },
   {
