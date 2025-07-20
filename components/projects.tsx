@@ -32,7 +32,6 @@ const projects = [
     liveLink: "#",
     githubLink: "#",
   },
-  
 ]
 
 export default function Projects() {
@@ -87,37 +86,26 @@ export default function Projects() {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500 transition-all duration-300 project-card"
+              className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500 transition-colors duration-200 project-card"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
             >
               <div className="relative h-48 w-full overflow-hidden group">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
 
-                {/* Hover overlay with key features */}
-                <div className="absolute inset-0 bg-purple-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center p-6">
-                  <h4 className="text-white font-bold mb-2">Key Features:</h4>
-                  <ul className="text-white text-sm space-y-1">
-                    <li className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span>Responsive design for all devices</span>
-                    </li>
-                    {/* <li className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span>Secure authentication system</span>
-                    </li> */}
-                    <li className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span>Optimized performance</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span>Intuitive user interface</span>
-                    </li>
+                {/* Hover overlay with key features - Simplified */}
+                <div className="absolute inset-0 bg-purple-900/90 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-center p-6">
+                  <h4 className="text-white font-bold mb-3">Key Features:</h4>
+                  <ul className="text-white text-sm space-y-2">
+                    <li>• Responsive design for all devices</li>
+                    <li>• Optimized performance</li>
+                    <li>• Intuitive user interface</li>
                   </ul>
                 </div>
               </div>
@@ -134,7 +122,7 @@ export default function Projects() {
                 <div className="flex gap-4">
                   <a
                     href={project.liveLink}
-                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400 animated-underline"
+                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400 transition-colors duration-150"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -142,7 +130,7 @@ export default function Projects() {
                   </a>
                   <a
                     href={project.githubLink}
-                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400 animated-underline"
+                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400 transition-colors duration-150"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -159,7 +147,7 @@ export default function Projects() {
             href="https://github.com/IbrahimShaikhli"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-purple-600 text-purple-500 hover:bg-purple-600 hover:text-white font-bold py-2 px-6 rounded-full transition-all duration-300 inline-block"
+            className="border border-purple-600 text-purple-500 hover:bg-purple-600 hover:text-white font-bold py-2 px-6 rounded-full transition-all duration-200 inline-block"
           >
             <span className="flex items-center gap-2">
               <Github className="h-5 w-5" />
