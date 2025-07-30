@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import Image from "next/image"
 
@@ -35,72 +34,30 @@ const projects = [
 ]
 
 export default function Projects() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6 },
-    },
-  }
-
   return (
-    <section id="projects" className="py-20 bg-gray-950 relative">
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-purple-900/10 rounded-full filter blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-purple-900/10 rounded-full filter blur-3xl"></div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+    <section id="projects" className="py-20 bg-gray-950">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-2">My Projects</h2>
           <div className="h-1 w-20 bg-purple-600 mx-auto"></div>
           <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
             Here are some of my recent projects. Each one presented unique challenges and opportunities for growth.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <motion.div
+            <div
               key={project.id}
-              variants={itemVariants}
-              className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500 transition-colors duration-200 project-card"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
+              className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500 transition-colors"
             >
-              <div className="relative h-48 w-full overflow-hidden group">
+              <div className="relative h-48 w-full overflow-hidden">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-200 group-hover:scale-105 will-change-transform"
+                  className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
-
-             
-                
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-purple-400">{project.title}</h3>
@@ -115,7 +72,7 @@ export default function Projects() {
                 <div className="flex gap-4">
                   <a
                     href={project.liveLink}
-                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400 transition-colors duration-150"
+                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -123,7 +80,7 @@ export default function Projects() {
                   </a>
                   <a
                     href={project.githubLink}
-                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400 transition-colors duration-150"
+                    className="flex items-center gap-1 text-sm text-purple-500 hover:text-purple-400"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -131,16 +88,16 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         <div className="text-center mt-12">
           <a
             href="https://github.com/IbrahimShaikhli"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-purple-600 text-purple-500 hover:bg-purple-600 hover:text-white font-bold py-2 px-6 rounded-full transition-all duration-200 inline-block"
+            className="border border-purple-600 text-purple-500 hover:bg-purple-600 hover:text-white font-bold py-2 px-6 rounded-full transition-all inline-block"
           >
             <span className="flex items-center gap-2">
               <Github className="h-5 w-5" />
