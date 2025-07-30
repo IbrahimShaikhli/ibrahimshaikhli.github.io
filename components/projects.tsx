@@ -27,7 +27,7 @@ const projects = [
     id: 3,
     title: "Coming Soon",
     description: "...",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/placeholder.svg",
     tags: [],
     liveLink: "#",
     githubLink: "#",
