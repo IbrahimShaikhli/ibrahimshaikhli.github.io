@@ -7,18 +7,18 @@ import Image from "next/image"
 const projects = [
   {
     id: 1,
-    title: "AGP",
-    description: "A comprehensive landingpage for managing and showcasing various projects.",
-    image: "/AGPPROFILE.jpg",
-    tags: ["React", "Next.js", "Tailwind CSS", "Vercel"],
-    liveLink: "https://agp-sigma.vercel.app/",
-    githubLink: "https://github.com/IbrahimShaikhli/AGP",
+    title: "HalalElites",
+    description: "A web development services based in Toledo Ohio that offers AI solutions and Mentorship",
+    image: "/HELogo.jpg",
+    tags: ["React", "Next.js", "Tailwind CSS", "Zoho"],
+    liveLink: "https://halalelites.dev/",
+    githubLink: "#",
   },
   {
     id: 2,
-    title: "HalalElites",
-    description: "A web development services based in Toledo Ohio",
-    image: "/HELogo.jpg",
+    title: "Coming Soon",
+    description: "...",
+    image: "/placeholder.svg?height=400&width=600",
     tags: ["React", "Next.js", "Tailwind CSS", "Zoho"],
     liveLink: "https://halalelites.dev/",
     githubLink: "#",
@@ -40,7 +40,7 @@ export default function Projects() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.1,
       },
     },
   }
