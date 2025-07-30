@@ -99,15 +99,8 @@ export default function Projects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
 
-                {/* Hover overlay with key features - Simplified */}
-                <div className="absolute inset-0 bg-purple-900/90 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col justify-center p-6">
-                  <h4 className="text-white font-bold mb-3">Key Features:</h4>
-                  <ul className="text-white text-sm space-y-2">
-                    <li>• Responsive design for all devices</li>
-                    <li>• Optimized performance</li>
-                    <li>• Intuitive user interface</li>
-                  </ul>
-                </div>
+             
+                
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-purple-400">{project.title}</h3>
